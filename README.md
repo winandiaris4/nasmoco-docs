@@ -1,21 +1,74 @@
-# Nasmoco Docs
+# Nasmoco Docs — Winamus Project Management Repository
 
-Dokumen ini berisi materi presentasi, analisis kebutuhan, draf proposal, serta materi negosiasi untuk proyek pengembangan **Platform Website Terpusat Nasmoco** (PT New Ratna Motor) oleh **Winamus (PT Winandi Multi Solusi)**.
+Repositori ini berfungsi sebagai **pusat manajemen proyek dan dokumentasi** untuk seluruh kebutuhan Winamus (PT Winandi Multi Solusi), baik dokumen korporat yang berlaku umum maupun dokumentasi spesifik per proyek klien.
+
+**Proyek Aktif:** Pengembangan Platform Website Terpusat **Nasmoco (PT New Ratna Motor)**
+**Status:** 🟡 Negosiasi — Menunggu persetujuan Quotation Rev.1
+**Prototype:** 🌐 [nasmoco.winamus.com](https://nasmoco.winamus.com)
+
+---
 
 ## Peran Konsultan Bisnis & IT
 
-Seluruh dokumen persiapan, naskah presentasi, analisis risiko, serta materi klarifikasi skema harga dalam repositori ini disusun oleh **Aris Winandi (Winamus)** berkolaborasi dengan **Antigravity**, sebuah AI Agent dari tim Google DeepMind yang bertindak sebagai **Konsultan Bisnis & IT**.
+Seluruh dokumen dalam repositori ini disusun oleh **Aris Winandi (Winamus)** berkolaborasi dengan **Antigravity**, AI Agent dari tim Google DeepMind, yang bertindak sebagai **Konsultan Bisnis & IT**. Kolaborasi ini mencakup:
 
-Kolaborasi strategis ini mencakup:
-1. **Analisis Kepatuhan & Risiko Bisnis:** Memetakan kebutuhan kepatuhan (*compliance*) terhadap SOP Digital Asset Toyota-Astra Motor (TAM) Juni 2025 serta risiko penalti terkait.
-2. **Perancangan Strategi Arsitektur IT:** Menyusun tahapan keamanan bertahap (*baseline*, *hardening*, *validation*) serta integrasi sistem existing (CRM & WhatsApp WABA) agar meminimalisir gangguan operasional.
-3. **Penyusunan Materi Komersial & Pitching:** Menyusun naskah presentasi terstruktur, antisipasi pertanyaan kritis klien (negosiasi biaya, keberlanjutan tim, kepemilikan source code), dan skema harga berbasis fase yang transparan (*low-risk*).
+1. **Analisis Kepatuhan & Risiko Bisnis** — Memetakan kebutuhan compliance terhadap SOP Digital Asset TAM Juni 2025.
+2. **Perancangan Strategi Arsitektur IT** — Tahapan keamanan bertahap (baseline → hardening → validation) & integrasi sistem existing.
+3. **Penyusunan Materi Komersial** — Skema harga berbasis fase, klausul perlindungan vendor, negosiasi, dan perpajakan.
 
 ---
 
 ## Struktur Repositori
 
-*   **`requirements_awal/`**: Dokumen acuan kebutuhan dan *gap analysis* dari Nasmoco.
-*   **`slide/`**: Naskah presentasi, draf presentasi PPTX, proposal PDF, dan daftar antisipasi pertanyaan sulit dari pihak manajemen Nasmoco.
-*   **`Other/`**: Dokumen klarifikasi tambahan (termasuk penjelasan detail skema fase harga dan pemeliharaan).
-*   **`Pajak/`**: Panduan aspek perpajakan PT Perorangan, skema pemotongan PPh 23 vs PPh Final 0.5%, dan daftar kelengkapan dokumen penagihan.
+```
+nasmoco-docs/
+│
+├── winamus/                        ← Dokumen korporat Winamus (berlaku lintas proyek)
+│   ├── SOP/                        ← Standar Operasional Prosedur (Project Handling, Development)
+│   ├── asset/                      ← Logo, gambar, dan aset visual Winamus
+│   ├── company profile/            ← Profil perusahaan & website
+│   ├── legal/                      ← Dokumen legalitas PT Perorangan
+│   └── other information/
+│       └── Pajak/                  ← Panduan PPh Final 0.5% (PP 55), simulasi pajak per termin
+│
+├── project/
+│   └── nasmoco/                    ← Semua dokumen proyek Nasmoco
+│       ├── progress.md             ← 📊 Dashboard tracking status & fase proyek (UPDATE DI SINI)
+│       ├── Docs/                   ← Dokumen resmi (Quotation, Proposal, Kontrak)
+│       │   └── Quotation_Nasmoco_Rev1.md   ← Penawaran harga resmi Rev.1 (Rp71.100.000)
+│       ├── Other/                  ← Dokumen komersial & operasional detail
+│       │   ├── Klarifikasi_Skema_Harga.md  ← Rincian biaya & termin per fase
+│       │   ├── Alur_Fase_dan_UAT.md        ← Alur pengerjaan, UAT, BAST & klausul perlindungan
+│       │   ├── Alur_Biaya_Maintenance.md   ← Skema maintenance bulanan/tahunan & excess hours
+│       │   ├── Analisis_Hosting_Mandiri.md ← Analisis skenario hosting Nasmoco vs Winamus
+│       │   └── Ringkasan_Poin_Proposal.md  ← Ringkasan eksekutif proposal
+│       ├── slide/                  ← Materi presentasi
+│       │   ├── Naskah_Presentasi_Nasmoco.md
+│       │   ├── Antisipasi_Pertanyaan_Sulit_Nasmoco.md
+│       │   └── *.pdf / *.pptx      ← File presentasi (perlu di-update ke angka terbaru)
+│       ├── requirements_awal/      ← Dokumen acuan dari Nasmoco (Kisi-Kisi & Analisis Requirements)
+│       └── Nasmoco-SOP-Software-Development-Checklist.md  ← SOP pengembangan standar industri
+│
+└── dokumen generator/              ← Konsep generator PDF otomatis dari Markdown
+```
+
+---
+
+## Status Dokumen
+
+| Dokumen | Lokasi | Status |
+|---|---|---|
+| Quotation Rev.1 | `project/nasmoco/Docs/` | ✅ Siap kirim *(lengkapi NPWP & rekening)* |
+| Progress Tracker | `project/nasmoco/progress.md` | ✅ Up to date |
+| Panduan Pajak | `winamus/other information/Pajak/` | ✅ Up to date |
+| Slide Presentasi (PDF/PPTX) | `project/nasmoco/slide/` | ⚠️ Perlu regenerasi (angka lama Rp86.1jt) |
+| Kontrak / PKS | `project/nasmoco/Docs/` | ⏳ Belum dibuat — menunggu PO |
+
+---
+
+## Panduan Penggunaan Cepat
+
+- **Tracking status proyek** → buka `project/nasmoco/progress.md`
+- **Kirim penawaran ke Nasmoco** → gunakan `project/nasmoco/Docs/Quotation_Nasmoco_Rev1.md`
+- **Siapkan invoice & perpajakan** → rujuk `winamus/other information/Pajak/Panduan_Pajak_PT_Perorangan.md`
+- **Diskusi teknis / klausul kontrak** → rujuk folder `project/nasmoco/Other/`

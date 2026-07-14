@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} — {{ company.brand }}</title>
+  <style>{{ css }}</style>
+</head>
+<body>
+<div class="page">
+
+  {# ── LETTERHEAD ── #}
+  <div class="letterhead">
+    <div class="letterhead-logo">
+      {% if logo_data %}
+        <img src="{{ logo_data }}" alt="{{ company.brand }} Logo">
+      {% else %}
+        <span class="brand-name">{{ company.brand }}</span>
+      {% endif %}
+    </div>
+    <div class="letterhead-info">
+      <p><strong>{{ company.name }}</strong></p>
+      <p>{{ company.website }}</p>
+      <p>{{ company.email }}</p>
+      <p>{{ company.phone }}</p>
+      <p>{{ company.address }}</p>
+    </div>
+  </div>
+
+  {# ── DOCUMENT TITLE & META ── #}
+  <div class="doc-title">
+    <span class="doc-type-badge">{{ doc_type | replace('_', ' ') | upper }}</span>
+    <h1>{{ title }}</h1>
+    <div class="doc-meta">
+      {% for key, val in metadata.items() %}
+      <div class="doc-meta-item">
+        <div class="label">{{ key }}</div>
+        <div class="value">{{ val }}</div>
+      </div>
+      {% endfor %}
+      <div class="doc-meta-item">
+        <div class="label">Tanggal Generate</div>
+        <div class="value">{{ generated_date }}</div>
+      </div>
+    </div>
+  </div>
+
+  <hr style="border: none; border-top: 1px solid var(--color-border, #E2E8F0); margin: 0 0 20px;">
+
+  {# ── DOCUMENT BODY ── #}
+  <div class="doc-body">
+    {{ body_html | safe }}
+  </div>
+
+  {# ── SIGNATURE BLOCK ── #}
+  <div class="signature-block">
+    <div class="signature-party">
+      <span class="party-label">Hormat Kami — Vendor</span>
+      <div class="signature-line">
+        <div class="signer-name">{{ company.signatory_name }}</div>
+        <div class="signer-title">{{ company.signatory_title }}</div>
+        <div class="signer-title">{{ company.name }}</div>
+      </div>
+    </div>
+    <div class="signature-party">
+      <span class="party-label">Disetujui — Klien</span>
+      <div class="signature-line">
+        <div class="signer-name">_________________________</div>
+        <div class="signer-title">Nama & Jabatan</div>
+      </div>
+    </div>
+  </div>
+
+  {# ── FOOTER ── #}
+  <div class="doc-footer">
+    <p>{{ company.name }} &mdash; {{ company.address }}</p>
+    <p class="page-num">Halaman <span class="pagenum"></span></p>
+  </div>
+
+</div>
+</body>
+</html>

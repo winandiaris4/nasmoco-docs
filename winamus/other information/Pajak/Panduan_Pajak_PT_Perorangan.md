@@ -51,13 +51,11 @@ Berikut adalah perbandingan uang bersih yang diterima (*net transfer*) antara ta
 | **Fase 1** (MVP) | Rp27.000.000 | Rp540.000 | **Rp26.460.000** | Rp135.000 | **Rp26.865.000** |
 | **Fase 2** (Governance) | Rp23.400.000 | Rp468.000 | **Rp22.932.000** | Rp117.000 | **Rp23.283.000** |
 | **Fase 3** (Optimasi) | Rp16.200.000 | Rp324.000 | **Rp15.876.000** | Rp81.000 | **Rp16.119.000** |
-| **Subkontrak** (Pen Test)* | Rp15.000.000 | — | — | — | — |
-| **Maintenance** (Managed)* | Rp3.600.000/bln | Rp72.000 | **Rp3.528.000** | Rp18.000 | **Rp3.582.000** |
-| **Maintenance** (Self-Host)*| Rp1.800.000/bln | Rp36.000 | **Rp1.764.000** | Rp9.000 | **Rp1.791.000** |
+| **Maintenance** (Managed) | Rp3.600.000/bln | Rp72.000 | **Rp3.528.000** | Rp18.000 | **Rp3.582.000** |
+| **Maintenance** (Self-Host)| Rp1.800.000/bln | Rp36.000 | **Rp1.764.000** | Rp9.000 | **Rp1.791.000** |
 
-*\*Catatan:*
-*   *Subkontrak Pen Testing senilai Rp15.000.000 akan dipotong PPh 23 oleh Nasmoco jika dibayarkan langsung. Jika lewat Winamus, pastikan kontrak dengan vendor pen test juga mencakup pemotongan PPh 23.*
-*   *Selisih potongan antara PPh 23 (2%) dan PPh Final (0.5%) untuk keseluruhan proyek pengembangan mencapai **Rp1.080.000**.*
+> [!NOTE]
+> *Pen Testing* tidak tercantum di tabel ini karena ditangani secara internal oleh Nasmoco. Selisih potongan antara PPh 23 (2%) dan PPh Final PP 55 (0.5%) untuk **keseluruhan biaya pengembangan (Rp71.100.000)** mencapai **Rp1.066.500** — ini adalah penghematan nyata yang bisa langsung Anda amankan dengan menyerahkan Suket PP 55 saat invoicing.
 
 ---
 

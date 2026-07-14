@@ -1,0 +1,50 @@
+company:
+  name: "PT Winandi Multi Solusi"
+  brand: "Winamus"
+  tagline: "We Build Digital Experiences"
+  website: "www.winamus.com"
+  email: "hello@winamus.com"
+  phone: "+62 857 3376 3005"
+  address: "Semarang, Central Java, Indonesia 50132"
+  logo_url: "https://axdwlscj9srz.objectstorage.ap-singapore-2.oci.customer-oci.com/n/axdwlscj9srz/b/aris_bucket/o/winamus-logowinamus-logo.png"
+
+colors:
+  primary: "#0F172A"      # Deep Navy — dominan, authority
+  secondary: "#3B82F6"    # Electric Blue — brand accent
+  accent: "#F59E0B"       # Amber — highlight, CTA
+  text: "#1E293B"         # Slate Dark — body text
+  muted: "#64748B"        # Slate — secondary text
+  border: "#E2E8F0"       # Light border
+  background: "#FFFFFF"   # White
+  surface: "#F8FAFC"      # Off-white surface
+
+defaults:
+  style: "modern"         # modern | classic | bold
+  layout: "table"         # varies per document type
+  output_dir: "output/"
+
+document_types:
+  quotation:
+    label: "Quotation / Penawaran Harga"
+    layouts: ["table", "narrative"]
+    default_layout: "table"
+  invoice:
+    label: "Invoice / Faktur"
+    layouts: ["itemized", "summary"]
+    default_layout: "itemized"
+  proposal:
+    label: "Proposal Teknis"
+    layouts: ["executive", "technical"]
+    default_layout: "executive"
+  contract:
+    label: "Kontrak / PKS"
+    layouts: ["standard", "simple"]
+    default_layout: "standard"
+  bast:
+    label: "Berita Acara Serah Terima (BAST)"
+    layouts: ["formal", "simple"]
+    default_layout: "formal"
+  cover_letter:
+    label: "Surat Pengantar / Cover Letter"
+    layouts: ["formal", "email"]
+    default_layout: "formal"

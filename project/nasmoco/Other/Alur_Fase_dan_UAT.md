@@ -81,9 +81,9 @@ Untuk menjaga kelancaran arus kas (*cash flow*) selama masa pengembangan dan men
 *   Jika dalam batas waktu **10 hari kerja** tersebut Klien tidak memberikan umpan balik tertulis atau laporan temuan, maka sistem pada fase tersebut secara hukum **dianggap telah disetujui sepenuhnya (*deemed approved*)**.
 *   Dengan status *deemed approved*, dokumen BAST dianggap sah untuk ditandatangani, dan Vendor berhak menerbitkan Invoice Pelunasan 70%.
 
-### B. Ketergantungan Pihak Ketiga pada Fase 3
-*   Pekerjaan **Fase 3 (Optimasi & Validasi)** senilai **Rp16.200.000** dan pekerjaan **Subkontrak Pen Testing** senilai **Rp15.000.000** adalah dua entitas penagihan yang terpisah.
-*   Apabila pekerjaan optimasi dari Vendor telah selesai dan lulus UAT, namun laporan hasil *Pen Testing* dari pihak ketiga independen mengalami keterlambatan yang disebabkan oleh pihak ketiga atau proses birokrasi TAM, maka Klien **tidak diperkenankan menahan pembayaran pelunasan Fase 3 (Rp16.200.000)** milik Vendor.
+### B. Ketergantungan Pen Testing Internal Nasmoco pada Fase 3
+*   Pekerjaan **Fase 3 (Optimasi & Validasi)** senilai **Rp16.200.000** diselesaikan penuh oleh Vendor, sedangkan pengujian keamanan (*Penetration Testing*) diurus secara internal dan mandiri oleh Klien (Nasmoco).
+*   Apabila pekerjaan optimasi dari Vendor telah selesai dan lulus UAT, namun pelaksanaan atau pelaporan hasil *Pen Testing* internal Nasmoco mengalami keterlambatan yang disebabkan oleh tim internal Klien atau birokrasi TAM, maka Klien **tidak diperkenankan menahan pembayaran pelunasan Fase 3 (Rp16.200.000)** milik Vendor.
 
 ### C. Tenggat Waktu Pembayaran (Term of Payment)
 *   Setiap invoice yang diterbitkan oleh Vendor (baik DP 30% maupun Pelunasan 70%) wajib dilunasi oleh Klien dalam waktu maksimal **14 hari kalender** sejak dokumen invoice diterima secara lengkap dan benar oleh bagian Keuangan Klien.

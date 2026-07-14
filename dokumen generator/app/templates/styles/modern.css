@@ -1,0 +1,189 @@
+/* ═══════════════════════════════════════════
+   Modern Style — Clean, minimal, tech-forward
+   Winamus Document Generator
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary:    #0F172A;
+  --color-secondary:  #3B82F6;
+  --color-accent:     #F59E0B;
+  --color-text:       #1E293B;
+  --color-muted:      #64748B;
+  --color-border:     #E2E8F0;
+  --color-bg:         #FFFFFF;
+  --color-surface:    #F8FAFC;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 10.5pt;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* ── Page layout ── */
+.page { max-width: 794px; margin: 0 auto; padding: 40px 48px; }
+
+/* ── Header / Letterhead ── */
+.letterhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--color-secondary);
+  margin-bottom: 28px;
+}
+.letterhead-logo img { height: 48px; width: auto; }
+.letterhead-logo .brand-name {
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+.letterhead-info { text-align: right; }
+.letterhead-info p { font-size: 8.5pt; color: var(--color-muted); line-height: 1.5; }
+.letterhead-info strong { color: var(--color-primary); }
+
+/* ── Document title ── */
+.doc-title {
+  margin-bottom: 24px;
+}
+.doc-type-badge {
+  display: inline-block;
+  background: var(--color-secondary);
+  color: white;
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+.doc-title h1 {
+  font-size: 18pt;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+.doc-meta {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.doc-meta-item { font-size: 8.5pt; }
+.doc-meta-item .label { color: var(--color-muted); font-weight: 500; }
+.doc-meta-item .value { color: var(--color-primary); font-weight: 600; }
+
+/* ── Content body ── */
+.doc-body h2 {
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 24px 0 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+.doc-body h3 {
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin: 16px 0 6px;
+}
+.doc-body p { margin-bottom: 8px; }
+.doc-body ul, .doc-body ol {
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+.doc-body li { margin-bottom: 3px; }
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 12px 0 20px;
+}
+thead tr { background: var(--color-primary); color: white; }
+thead th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.3px;
+}
+tbody tr:nth-child(even) { background: var(--color-surface); }
+tbody td { padding: 7px 12px; border-bottom: 1px solid var(--color-border); }
+tfoot tr { background: var(--color-surface); font-weight: 600; }
+tfoot td { padding: 8px 12px; border-top: 2px solid var(--color-secondary); }
+
+/* ── Highlight box ── */
+.highlight-box {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1E3A5F 100%);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+.highlight-box .total-label { font-size: 8.5pt; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; }
+.highlight-box .total-value { font-size: 20pt; font-weight: 700; }
+
+/* ── Signature block ── */
+.signature-block {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.signature-party { text-align: center; width: 45%; }
+.signature-party .party-label { font-size: 9pt; color: var(--color-muted); margin-bottom: 60px; }
+.signature-party .signature-line { border-top: 1px solid var(--color-border); padding-top: 6px; }
+.signature-party .signer-name { font-weight: 600; font-size: 10pt; }
+.signature-party .signer-title { font-size: 8.5pt; color: var(--color-muted); }
+
+/* ── Footer ── */
+.doc-footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.doc-footer p { font-size: 8pt; color: var(--color-muted); }
+.doc-footer .page-num { font-size: 8pt; color: var(--color-muted); }
+
+/* ── Alert / Note boxes ── */
+.note-box {
+  background: #EFF6FF;
+  border-left: 3px solid var(--color-secondary);
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-size: 9pt;
+  border-radius: 0 4px 4px 0;
+}
+.warning-box {
+  background: #FFFBEB;
+  border-left: 3px solid var(--color-accent);
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-size: 9pt;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── Print / PDF ── */
+@media print {
+  body { font-size: 10pt; }
+  .page { padding: 0; }
+  .letterhead { page-break-after: avoid; }
+  tr { page-break-inside: avoid; }
+}
+@page {
+  size: A4;
+  margin: 20mm 15mm 20mm 15mm;
+}

@@ -6,17 +6,17 @@ Disusun berdasarkan kemungkinan pertanyaan dari Manager Pemasaran dan Manager IT
 
 ## A. Soal Biaya (paling mungkin ditanya duluan)
 
-**Q1: "Kok bisa naik jauh dari Rp60 juta yang sempat dibicarakan ke Rp129 juta?"**
+**Q1: "Kok bisa naik jauh dari Rp60 juta yang sempat dibicarakan?"**
 
 Ini pertanyaan yang paling pasti muncul. Jangan defensif, jawab dengan percaya diri:
 
-> "Angka awal itu muncul sebelum kami menerima dokumen Kisi-Kisi dan Analisis Requirements resmi. Begitu kami pelajari, scope-nya jauh lebih luas dari obrolan awal — ini bukan sekadar refresh tampilan, tapi mencakup governance berjenjang, atribusi lead anti-hijack, keamanan setingkat SOP TAM, sampai pen testing eksternal. Setiap komponen biaya di proposal kami terhubung langsung ke requirement yang tertulis di dokumen Bapak/Ibu sendiri — bukan kami mengada-ada menaikkan harga."
+> "Angka awal itu muncul sebelum kami menerima dokumen Kisi-Kisi dan Analisis Requirements resmi. Begitu kami pelajari, scope-nya jauh lebih luas dari obrolan awal — ini bukan sekadar refresh tampilan, tapi mencakup governance berjenjang, atribusi lead anti-hijack, keamanan setingkat SOP TAM, dan validasi keamanan. Setiap komponen biaya di proposal kami terhubung langsung ke requirement yang tertulis di dokumen Bapak/Ibu sendiri. Dan kami sudah mengakomodasi permintaan Bapak/Ibu untuk menghapus biaya Pen Testing eksternal karena akan ditangani internal — sehingga total pengembangan sekarang adalah Rp71.100.000."
 
 Kalau didesak lebih jauh: tawarkan untuk membahas per fase mana yang bisa disesuaikan (lihat Q2), bukan mempertahankan angka total secara kaku.
 
 **Q2: "Bisa dipangkas supaya lebih dekat ke budget awal?"**
 
-> "Bisa kita diskusikan per fase. Fase 1 itu inti yang tidak bisa dikompromikan karena di situ letak kepatuhan utamanya. Yang punya ruang fleksibel: cakupan GEO di Fase 3, atau frekuensi pen testing — itu bisa disesuaikan tanpa mengorbankan kepatuhan inti."
+> "Bisa kita diskusikan per fase. Fase 1 itu inti yang tidak bisa dikompromikan karena di situ letak kepatuhan utamanya. Yang punya ruang fleksibel adalah cakupan GEO di Fase 3 — itu bisa disesuaikan tanpa mengorbankan kepatuhan inti. Biaya pen testing juga sudah kami keluarkan dari penawaran sesuai permintaan Bapak/Ibu karena akan ditangani internal."
 
 Jangan langsung setuju potong harga di tempat tanpa mengurangi scope — itu akan terlihat bahwa harga awal memang asal pasang.
 

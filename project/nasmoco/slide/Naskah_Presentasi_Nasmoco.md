@@ -96,7 +96,7 @@ Di fase pertama, kami terapkan baseline: PostgreSQL dengan RBAC, password policy
 
 Di fase kedua, kami masuk ke hardening: MFA wajib di seluruh akun, WAF dari Cloudflare, enkripsi data sensitif, dan migrasi ke hosting yang memenuhi ISO27001.
 
-Di fase ketiga, kami lakukan validasi: pen testing oleh pihak eksternal independen, laporan audit sebagai bukti kepatuhan ke TAM, dan prosedur respons insiden dengan batas waktu 24 jam.
+Di fase ketiga, kami lakukan validasi: pen testing secara mandiri oleh tim internal Nasmoco, laporan audit sebagai bukti kepatuhan ke TAM, dan prosedur respons insiden dengan batas waktu 24 jam.
 
 Pendekatan berjenjang ini memastikan Bapak/Ibu melihat progres keamanan yang nyata di setiap fase, bukan menunggu sampai akhir untuk tahu apakah standarnya terpenuhi.
 
@@ -134,7 +134,7 @@ Fase 1, ini fase inti: migrasi ke PostgreSQL, sistem harga terpusat dan page bui
 
 Fase 2: approval workflow berjenjang dari sales ke SPV cabang ke HO marketing, brand lock, pemeriksaan otomatis konten, kill switch, audit log, MFA, dan WAF.
 
-Fase 3: optimasi SEO untuk pencarian berbasis AI, optimasi performa, pen testing eksternal, dan dokumentasi lengkap beserta pelatihan tim.
+Fase 3: optimasi SEO untuk pencarian berbasis AI, optimasi performa, koordinasi hasil pen testing internal, dan dokumentasi lengkap beserta pelatihan tim.
 
 ---
 
@@ -142,11 +142,11 @@ Fase 3: optimasi SEO untuk pencarian berbasis AI, optimasi performa, pen testing
 
 Sekarang saya masuk ke bagian investasi. Saya sengaja menyampaikan ini setelah Bapak/Ibu melihat keseluruhan cakupan kerja, supaya angkanya punya konteks yang jelas.
 
-Total biaya pengembangan untuk keempat fase, termasuk pen testing eksternal, kami estimasikan Rp86.100.000. Breakdown-nya bisa dilihat di grafik — fase 1 yang paling besar porsinya karena itu fase inti pengembangan sistem.
+Total biaya pengembangan untuk seluruh fase pengembangan kami estimasikan Rp71.100.000, di luar biaya pen testing yang akan ditangani sendiri oleh Nasmoco secara internal. Breakdown-nya bisa dilihat di grafik — fase 1 yang paling besar porsinya karena itu fase inti pengembangan sistem.
 
 Untuk pemeliharaan setelah go-live, kami estimasikan Rp43.200.000 per tahun, atau Rp3.600.000 per bulan, yang mencakup dukungan teknis, hosting setara ISO27001, dan WAF.
 
-Jadi total investasi tahun pertama, gabungan pengembangan dan pemeliharaan, adalah Rp129.300.000.
+Jadi total investasi tahun pertama, gabungan pengembangan dan pemeliharaan, adalah Rp114.300.000 (untuk skenario pemeliharaan penuh/Skenario 1).
 
 Saya ingin tegaskan: ini adalah estimasi awal berdasarkan ruang lingkup yang kami pahami saat ini. Kami terbuka penuh untuk mendiskusikan dan menyesuaikan angka ini bersama Bapak/Ibu.
 

@@ -6,7 +6,7 @@ Dokumen ini berisi rincian penjelasan mengenai alokasi biaya, cakupan pekerjaan 
 
 ## 1. Rincian Biaya & Termin Pembayaran per Fase
 
-Total biaya pengembangan (Fase 0–3) adalah **Rp86.100.000** (termasuk subkontrak *pen testing* eksternal). Rincian alokasi biaya, durasi, dan cakupan pekerjaan per fase adalah sebagai berikut:
+Total biaya pengembangan (Fase 0–3) adalah **Rp71.100.000** (tidak termasuk pengujian keamanan *penetration testing* yang didelegasikan ke pihak internal Klien). Rincian alokasi biaya, durasi, dan cakupan pekerjaan per fase adalah sebagai berikut:
 
 ### 1. **Fase 0: Discovery & Desain**
 *   **Durasi:** 1–2 Minggu
@@ -50,17 +50,11 @@ Total biaya pengembangan (Fase 0–3) adalah **Rp86.100.000** (termasuk subkontr
     *   Penyusunan dokumentasi teknis & sesi pelatihan tim Nasmoco
     *   Penyusunan Laporan Kepatuhan (*Compliance Report*) untuk standar TAM
 
-### 5. **Subkontrak: Pen Testing (Pihak Ketiga)**
-*   **Durasi:** Berjalan paralel di Fase 3
-*   **Total Biaya:** **Rp15.000.000** *(Dibayar 100% setelah laporan pengujian selesai)*
-*   **Cakupan Pekerjaan (Deliverables):**
-    *   Pengujian keamanan penetrasi (*penetration testing*) oleh vendor pihak ketiga independen beserta penyerahan sertifikat keamanan resmi.
-
 ---
 
-**RINGKASAN TOTAL BIAYA PENGEMBANGAN (Fase 0 - 3):** **Rp86.100.000**  
+**RINGKASAN TOTAL BIAYA PENGEMBANGAN (Fase 0 - 3):** **Rp71.100.000**  
 *   **Total Uang Muka (DP 30%):** Rp21.330.000  
-*   **Total Pelunasan (70%):** Rp64.770.000  
+*   **Total Pelunasan (70%):** Rp49.770.000  
 *   **Total Estimasi Waktu:** 18 Minggu  
 
 ---
@@ -100,7 +94,7 @@ Jika Nasmoco memilih Skenario 1 dengan pembayaran bulanan, rincian alokasinya ad
 Untuk melindungi investasi waktu, analisis, dan perencanaan teknis yang telah dilakukan oleh Vendor, ketentuan komitmen berikut diberlakukan dalam kontrak kerja sama:
 
 ### A. Satu Kesatuan Komitmen Proyek (Single Package Commitment)
-*   Keseluruhan nilai proyek sebesar **Rp86.100.000** (Fase 0 s.d Fase 3) ditawarkan sebagai **satu kesatuan paket**.
+*   Keseluruhan nilai proyek sebesar **Rp71.100.000** (Fase 0 s.d Fase 3) ditawarkan sebagai **satu kesatuan paket**.
 *   Harga Fase 0 (Discovery & Desain) senilai **Rp4.500.000** merupakan harga subsidi khusus (*loss leader*) yang diberikan karena Klien berkomitmen untuk melaksanakan seluruh rangkaian fase hingga selesai.
 
 ### B. Batasan Hak Kekayaan Intelektual (Intellectual Property Rights)

@@ -1,0 +1,1 @@
+https://axdwlscj9srz.objectstorage.ap-singapore-2.oci.customer-oci.com/n/axdwlscj9srz/b/aris_bucket/o/winamus-logowinamus-logo.png

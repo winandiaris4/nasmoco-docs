@@ -54,7 +54,7 @@ Keamanan informasi diterapkan secara bertahap dan terukur untuk meminimalkan ris
     *   Integrasi Web Application Firewall (WAF) Cloudflare untuk menangkal serangan DDoS.
     *   Enkripsi data sensitif pelanggan di dalam basis data.
 *   **Fase 3 — Security Validation:**
-    *   Pelaksanaan *Penetration Testing* (Pen Test) oleh auditor keamanan eksternal independen.
+    *   Pelaksanaan *Penetration Testing* (Pen Test) secara mandiri oleh tim internal Nasmoco.
     *   Penyusunan laporan audit kepatuhan (*compliance report*) resmi untuk diserahkan kepada TAM.
 
 ---
@@ -74,12 +74,12 @@ Sistem baru dirancang untuk berintegrasi dan memperkuat sistem yang sudah dimili
 *   **Minggu 1-2 (Fase 0):** Finalisasi Dokumen Spesifikasi & Desain UI/UX.
 *   **Minggu 3-8 (Fase 1):** Pengembangan Sistem Inti & **Go-Live MVP (Minggu ke-8)**.
 *   **Minggu 9-14 (Fase 2):** Fitur Governance, Approval Workflow, & Pengerasan Keamanan.
-*   **Minggu 15-18 (Fase 3):** Optimasi SEO/GEO, Pen Testing, & Laporan Kepatuhan.
+*   **Minggu 15-18 (Fase 3):** Optimasi SEO/GEO, Pen Testing Internal, & Laporan Kepatuhan.
 
 ### B. Struktur Investasi
-1.  **Biaya Pengembangan (Fase 0-3 + Pen Test):** **Rp86.100.000**
+1.  **Biaya Pengembangan (Fase 0-3):** **Rp71.100.000** (tidak termasuk biaya Pen Testing)
 2.  **Biaya Pemeliharaan (Mulai setelah Fase 1 Go-Live):** **Rp3.600.000/bulan** (mencakup dukungan teknis, hosting awan ISO27001, dan lisensi Cloudflare WAF).
-3.  **Total Investasi Tahun Pertama:** **Rp129.300.000**
+3.  **Total Investasi Tahun Pertama:** **Rp114.300.000** (menggunakan skenario pemeliharaan penuh/Skenario 1)
 
 ### C. Termin Pembayaran (Low-Risk Scheme)
 Pembayaran dilakukan per fase dengan skema:

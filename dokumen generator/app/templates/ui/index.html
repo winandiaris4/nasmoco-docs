@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winamus Doc Generator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    :root {
+      --navy: #0F172A; --blue: #3B82F6; --amber: #F59E0B;
+      --slate: #64748B; --border: #E2E8F0; --surface: #F8FAFC;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #F1F5F9; color: var(--navy); min-height: 100vh; }
+
+    /* ── Top Bar ── */
+    .topbar {
+      background: var(--navy);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar-brand { font-size: 18px; font-weight: 700; color: white; letter-spacing: -0.3px; }
+    .topbar-sub { font-size: 11px; color: rgba(255,255,255,0.5); }
+    .topbar-badge {
+      margin-left: auto;
+      background: var(--blue);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 99px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Layout ── */
+    .layout { display: grid; grid-template-columns: 340px 1fr; min-height: calc(100vh - 52px); }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      background: white;
+      border-right: 1px solid var(--border);
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-section h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--slate); margin-bottom: 10px; }
+    label { display: block; font-size: 12px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--navy);
+      background: white;
+      margin-bottom: 10px;
+      transition: border-color 0.15s;
+    }
+    select:focus, input:focus { outline: none; border-color: var(--blue); }
+
+    /* Style chips */
+    .style-chips { display: flex; gap: 6px; margin-bottom: 10px; }
+    .chip {
+      flex: 1;
+      text-align: center;
+      padding: 7px 4px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .chip.active { border-color: var(--blue); background: #EFF6FF; color: var(--blue); font-weight: 600; }
+    .chip:hover:not(.active) { border-color: var(--slate); }
+
+    /* Format checkboxes */
+    .format-checks { display: flex; gap: 8px; }
+    .fmt-check { display: flex; align-items: center; gap: 5px; font-size: 12px; cursor: pointer; }
+    .fmt-check input { accent-color: var(--blue); }
+
+    /* Buttons */
+    .btn-preview, .btn-generate {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .btn-preview { background: var(--surface); color: var(--navy); border: 1px solid var(--border); margin-bottom: 8px; }
+    .btn-preview:hover { background: var(--border); }
+    .btn-generate { background: var(--blue); color: white; }
+    .btn-generate:hover { background: #2563EB; transform: translateY(-1px); }
+    .btn-generate:active { transform: translateY(0); }
+
+    /* ── Main Panel ── */
+    .main-panel { display: flex; flex-direction: column; }
+    .panel-tabs { background: white; border-bottom: 1px solid var(--border); display: flex; }
+    .tab {
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+    .panel-content { flex: 1; display: none; overflow: hidden; }
+    .panel-content.active { display: flex; flex-direction: column; }
+
+    /* Preview iframe */
+    #preview-frame { flex: 1; border: none; width: 100%; height: 100%; }
+    .preview-placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate);
+      gap: 12px;
+    }
+    .preview-placeholder svg { opacity: 0.3; }
+    .preview-placeholder p { font-size: 13px; }
+
+    /* Results panel */
+    .results-panel { padding: 32px; }
+    .results-panel h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+    .file-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .file-icon { font-size: 28px; }
+    .file-info { flex: 1; }
+    .file-name { font-size: 13px; font-weight: 600; }
+    .file-size { font-size: 11px; color: var(--slate); }
+    .btn-dl {
+      background: var(--navy);
+      color: white;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-dl:hover { background: var(--blue); }
+
+    /* History panel */
+    .history-panel { padding: 32px; overflow-y: auto; }
+    .history-panel h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+    .history-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+      font-size: 12px;
+    }
+    .history-item .name { flex: 1; font-weight: 500; }
+    .history-item .size { color: var(--slate); }
+
+    /* Loading state */
+    .loading { opacity: 0.6; pointer-events: none; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 6px; vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand">{{ company.brand }}</span>
+  <span class="topbar-sub">Document Generator</span>
+  <span class="topbar-badge">v1.0</span>
+</div>
+
+<div class="layout">
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="form-section">
+      <h3>📄 Source File</h3>
+      <label for="source-select">Pilih file Markdown</label>
+      <select id="source-select">
+        <option value="">— Pilih file —</option>
+        {% for f in md_files %}
+        <option value="{{ f.path }}">{{ f.label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-section">
+      <h3>📋 Tipe Dokumen</h3>
+      <select id="doc-type">
+        {% for key, info in doc_types.items() %}
+        <option value="{{ key }}">{{ info.label }}</option>
+        {% endfor %}
+      </select>
+      <label for="layout-select">Layout</label>
+      <select id="layout-select">
+        <option value="table">table</option>
+      </select>
+    </div>
+
+    <div class="form-section">
+      <h3>🎨 Visual Style</h3>
+      <div class="style-chips">
+        <div class="chip active" data-style="modern">Modern</div>
+        <div class="chip" data-style="classic">Classic</div>
+        <div class="chip" data-style="bold">Bold</div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>📦 Format Output</h3>
+      <div class="format-checks">
+        <label class="fmt-check"><input type="checkbox" value="pdf" checked> PDF</label>
+        <label class="fmt-check"><input type="checkbox" value="docx" checked> DOCX</label>
+        <label class="fmt-check"><input type="checkbox" value="html" checked> HTML</label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>📁 Project Output (Opsional)</h3>
+      <label for="project-dir">Salin hasil ke project/Docs/</label>
+      <input type="text" id="project-dir" placeholder="misal: project/nasmoco/Docs">
+    </div>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+      <button class="btn-preview" onclick="previewDoc()">👁️ Preview HTML</button>
+      <button class="btn-generate" onclick="generateDoc()">⚡ Generate Dokumen</button>
+    </div>
+  </aside>
+
+  <!-- ── MAIN PANEL ── -->
+  <div class="main-panel">
+    <div class="panel-tabs">
+      <div class="tab active" onclick="switchTab('preview')">Preview</div>
+      <div class="tab" onclick="switchTab('results')">Hasil Generate</div>
+      <div class="tab" onclick="switchTab('history')">History</div>
+    </div>
+
+    <div id="tab-preview" class="panel-content active">
+      <div id="preview-placeholder" class="preview-placeholder">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        <p>Pilih file dan klik <strong>Preview HTML</strong></p>
+      </div>
+      <iframe id="preview-frame" style="display:none;"></iframe>
+    </div>
+
+    <div id="tab-results" class="panel-content">
+      <div class="results-panel">
+        <h3>📦 Hasil Generate</h3>
+        <div id="results-list"><p style="color:var(--slate);font-size:13px;">Belum ada dokumen yang digenerate.</p></div>
+      </div>
+    </div>
+
+    <div id="tab-history" class="panel-content">
+      <div class="history-panel">
+        <h3>🕒 History File</h3>
+        <div id="history-list"><p style="color:var(--slate);font-size:13px;">Memuat...</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const docTypes = {{ doc_types | tojson }};
+  let selectedStyle = "modern";
+
+  // ── Style chip toggle ──
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedStyle = chip.dataset.style;
+    });
+  });
+
+  // ── Update layout options when doc type changes ──
+  document.getElementById('doc-type').addEventListener('change', function() {
+    const layouts = docTypes[this.value]?.layouts || [];
+    const sel = document.getElementById('layout-select');
+    sel.innerHTML = layouts.map(l => `<option value="${l}">${l}</option>`).join('');
+  });
+  // Init layouts for first option
+  document.getElementById('doc-type').dispatchEvent(new Event('change'));
+
+  // ── Tab switching ──
+  function switchTab(tab) {
+    document.querySelectorAll('.tab').forEach((t, i) => t.classList.remove('active'));
+    document.querySelectorAll('.panel-content').forEach(p => p.classList.remove('active'));
+    document.querySelector(`.tab:nth-child(${['preview','results','history'].indexOf(tab)+1})`).classList.add('active');
+    document.getElementById(`tab-${tab}`).classList.add('active');
+    if (tab === 'history') loadHistory();
+  }
+
+  // ── Preview ──
+  async function previewDoc() {
+    const source = document.getElementById('source-select').value;
+    if (!source) { alert('Pilih file Markdown terlebih dahulu!'); return; }
+    const fd = new FormData();
+    fd.append('source_path', source);
+    fd.append('doc_type', document.getElementById('doc-type').value);
+    fd.append('style', selectedStyle);
+    fd.append('layout', document.getElementById('layout-select').value);
+
+    const btn = document.querySelector('.btn-preview');
+    btn.innerHTML = '<span class="spinner"></span> Loading...';
+    try {
+      const res = await fetch('/preview', { method: 'POST', body: fd });
+      const html = await res.text();
+      const frame = document.getElementById('preview-frame');
+      const placeholder = document.getElementById('preview-placeholder');
+      frame.style.display = 'block';
+      placeholder.style.display = 'none';
+      frame.srcdoc = html;
+    } catch(e) { alert('Error preview: ' + e); }
+    btn.innerHTML = '👁️ Preview HTML';
+  }
+
+  // ── Generate ──
+  async function generateDoc() {
+    const source = document.getElementById('source-select').value;
+    if (!source) { alert('Pilih file Markdown terlebih dahulu!'); return; }
+    const formats = [...document.querySelectorAll('.fmt-check input:checked')].map(c => c.value).join(',');
+    if (!formats) { alert('Pilih minimal satu format output!'); return; }
+
+    const fd = new FormData();
+    fd.append('source_path', source);
+    fd.append('doc_type', document.getElementById('doc-type').value);
+    fd.append('style', selectedStyle);
+    fd.append('layout', document.getElementById('layout-select').value);
+    fd.append('formats', formats);
+    const projDir = document.getElementById('project-dir').value.trim();
+    if (projDir) fd.append('project_docs_dir', projDir);
+
+    const btn = document.querySelector('.btn-generate');
+    btn.innerHTML = '<span class="spinner"></span> Generating...';
+    btn.classList.add('loading');
+
+    try {
+      const res = await fetch('/generate', { method: 'POST', body: fd });
+      const data = await res.json();
+
+      if (data.success) {
+        const icons = { pdf: '📄', docx: '📝', html: '🌐' };
+        document.getElementById('results-list').innerHTML = data.files.map(f => `
+          <div class="file-card">
+            <span class="file-icon">${icons[f.format] || '📁'}</span>
+            <div class="file-info">
+              <div class="file-name">${f.filename}</div>
+              <div class="file-size">${f.size_kb} KB</div>
+            </div>
+            <a class="btn-dl" href="${f.url}" download="${f.filename}">⬇ Download</a>
+          </div>
+        `).join('');
+        switchTab('results');
+      } else {
+        alert('Generate gagal: ' + (data.detail || 'Unknown error'));
+      }
+    } catch(e) { alert('Error: ' + e); }
+    btn.innerHTML = '⚡ Generate Dokumen';
+    btn.classList.remove('loading');
+  }
+
+  // ── History ──
+  async function loadHistory() {
+    try {
+      const res = await fetch('/history');
+      const files = await res.json();
+      const icons = { pdf: '📄', docx: '📝', html: '🌐' };
+      document.getElementById('history-list').innerHTML = files.length
+        ? files.map(f => {
+            const ext = f.filename.split('.').pop();
+            return `<div class="history-item">
+              <span>${icons[ext] || '📁'}</span>
+              <span class="name">${f.filename}</span>
+              <span class="size">${f.size_kb} KB</span>
+              <a class="btn-dl" href="${f.url}" download="${f.filename}">⬇</a>
+            </div>`;
+          }).join('')
+        : '<p style="color:var(--slate);font-size:13px;">Belum ada file.</p>';
+    } catch(e) {}
+  }
+
+  loadHistory();
+</script>
+</body>
+</html>
