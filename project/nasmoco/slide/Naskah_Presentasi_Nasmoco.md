@@ -134,7 +134,7 @@ Fase 1, ini fase inti: migrasi ke PostgreSQL, sistem harga terpusat dan page bui
 
 Fase 2: approval workflow berjenjang dari sales ke SPV cabang ke HO marketing, brand lock, pemeriksaan otomatis konten, kill switch, audit log, MFA, dan WAF.
 
-Fase 3: optimasi SEO untuk pencarian berbasis AI, optimasi performa, koordinasi hasil pen testing internal, dan dokumentasi lengkap beserta pelatihan tim.
+Fase 3: optimasi SEO untuk pencarian berbasis AI, optimasi performa, koordinasi hasil pen testing internal, dan dokumentasi lengkap beserta pembuatan video tutorial dan penyediaan bantuan teknis (technical support) melalui email atau telepon/WhatsApp.
 
 ---
 

@@ -84,7 +84,7 @@
 - [ ] Optimasi SEO Lokal (22 Cabang)
 - [ ] Optimasi SEO berbasis AI (GEO)
 - [ ] Penyusunan dokumentasi teknis
-- [ ] Sesi pelatihan tim Nasmoco
+- [ ] Pembuatan Video Tutorial & Penyediaan Technical Support melalui Email atau Phone/WhatsApp
 - [ ] Koordinasi & penyerahan Compliance Report untuk TAM
 - [ ] Koordinasi hasil Pen Testing internal Nasmoco *(diurus oleh Nasmoco)*
 - [ ] UAT Fase 3

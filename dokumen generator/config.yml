@@ -6,7 +6,7 @@ company:
   email: "hello@winamus.com"
   phone: "+62 857 3376 3005"
   address: "Semarang, Central Java, Indonesia 50132"
-  logo_url: "https://axdwlscj9srz.objectstorage.ap-singapore-2.oci.customer-oci.com/n/axdwlscj9srz/b/aris_bucket/o/winamus-logowinamus-logo.png"
+  logo_url: "winamus/asset/logo_with_title_white_bg2.png"
 
 colors:
   primary: "#0F172A"      # Deep Navy — dominan, authority

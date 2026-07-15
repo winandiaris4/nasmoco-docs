@@ -49,7 +49,7 @@
 | | |
 |---|---|
 | Durasi | 3–4 Minggu |
-| Deliverables | SEO Lokal (22 Cabang), GEO Optimization, Dokumentasi Teknis, Pelatihan Tim, Compliance Report TAM |
+| Deliverables | SEO Lokal (22 Cabang), GEO Optimization, Dokumentasi Teknis, Video Tutorial & Technical Support melalui Email atau Phone/WhatsApp, Compliance Report TAM |
 | **Total Biaya** | **Rp16.200.000** |
 | DP 30% (Awal Fase) | Rp4.860.000 |
 | Pelunasan 70% (Setelah UAT) | Rp11.340.000 |
@@ -97,14 +97,36 @@ Berlaku mulai setelah **Go-Live MVP (Fase 1)** secara pro-rata.
 
 ---
 
+## Lampiran: Metodologi & Jaminan Kualitas Pengembangan (Hybrid Agile)
+
+Untuk memberikan kepastian investasi (*Fixed Budget*) dan ketepatan waktu peluncuran (*Fixed Timeline* 18 Minggu) bagi Nasmoco, namun tetap menjaga kelenturan pengembangan fitur, PT Winandi Multi Solusi menerapkan pendekatan **Hybrid Agile (Water-Scrum-Fall)**. 
+
+Di balik setiap Fase Komersial yang disepakati, tim kami menjalankan siklus rekayasa perangkat lunak standar industri (IEEE/TOGAF) yang terperinci sebagai berikut:
+
+### 1. Pemetaan Fase Komersial ke SOP Pengembangan Profesional
+*   **Fase 0: Discovery & Desain** *(SOP Fase 1–3)*
+    *   *Aktivitas:* Elicitation (SRS/BRD), analisis proses bisnis AS-IS & TO-BE, penyusunan WBS, dan pembuatan *Interactive Prototype* serta *Design System* (Figma) untuk validasi UI/UX awal.
+*   **Fase 1: Pengembangan Inti & Integrasi** *(SOP Fase 4–12)*
+    *   *Aktivitas:* Pembuatan arsitektur sistem (HLD/LLD), skema database (ERD), setup CI/CD pipeline otomatis, coding core engine, unit testing (coverage target ≥80%), deployment ke server Staging, pengujian UAT, hingga *Hypercare* 48 jam pasca Go-Live.
+*   **Fase 2: Alur Persetujuan & Keamanan** *(SOP Fase 5, 7–12)*
+    *   *Aktivitas:* Desain keamanan (data encryption, MFA, perlindungan OWASP Top 10), coding persetujuan berjenjang & brand lock, setup Cloudflare WAF, dan verifikasi integrasi.
+*   **Fase 3: Optimasi & Validasi** *(SOP Fase 9, 12–14)*
+    *   *Aktivitas:* Pengetesan beban (*Stress & Load Testing*), audit SEO lokal & berbasis AI (GEO), dokumentasi teknis akhir, pembuatan video tutorial, penyediaan bantuan teknis (Technical Support via Email/WA), dan penyusunan *Compliance Report* standar TAM.
+
+### 2. Jaminan Kelenturan (Agile Flexibility)
+*   **Sprint Berkala (Feedback Loop):** Pengembangan di setiap fase dibagi menjadi siklus kerja (sprint) 2 mingguan. Klien akan dilibatkan dalam demo berkala untuk melihat progress nyata dan memberikan masukan awal.
+*   **Mekanisme Tukar Tambah Fitur (*Scope Trade-off*):** Jika di tengah jalan Klien membutuhkan perubahan atau penambahan fitur baru, hal tersebut dapat diakomodasi dengan cara **menukar** fitur lain yang setara dalam hal bobot teknis (*story points*) pada fase berjalan, tanpa mengubah nilai kontrak dasar dan timeline.
+
+---
+
 ## Informasi Penagihan
 
 | | |
 |---|---|
 | **Nama Perusahaan** | PT Winandi Multi Solusi |
-| **NPWP** | *(isi NPWP PT Perorangan)* |
-| **Bank** | *(isi nama bank)* |
-| **No. Rekening** | *(isi nomor rekening)* |
+| **NPWP** | 1000000009851947 |
+| **Bank** | ----- |
+| **No. Rekening** | ----- |
 | **Atas Nama** | PT Winandi Multi Solusi |
 
 > [!IMPORTANT]

@@ -6,9 +6,10 @@ from pathlib import Path
 import yaml
 from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).parent.parent
-CONFIG_PATH = BASE_DIR / "config.yml"
-ENV_PATH = BASE_DIR / ".env"
+GENERATOR_DIR = Path(__file__).parent.parent
+REPO_ROOT = GENERATOR_DIR.parent
+CONFIG_PATH = GENERATOR_DIR / "config.yml"
+ENV_PATH = GENERATOR_DIR / ".env"
 
 load_dotenv(ENV_PATH)
 

@@ -37,7 +37,12 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.letterhead-logo img { height: 44px; filter: brightness(0) invert(1); }
+.letterhead-logo img {
+  height: 100px;
+  filter: brightness(0) invert(1);
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
 .letterhead-logo .brand-name {
   font-size: 24pt;
   font-weight: 800;

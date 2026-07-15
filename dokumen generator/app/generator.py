@@ -34,29 +34,64 @@ jinja_env = Environment(
 def parse_markdown(source_path: Path) -> dict:
     """
     Parse Markdown file menjadi structured content.
-    Mengekstrak judul, metadata (dari baris ## key: value), dan body HTML.
+    Mengekstrak judul, metadata (dari baris | Key | Value |), dan body HTML.
+    Menghilangkan duplikasi judul dan tabel metadata dari body.
     """
     text = source_path.read_text(encoding="utf-8")
     lines = text.splitlines()
 
     metadata = {}
     content_lines = []
-    in_metadata = False
+    
+    # Kumpulkan metadata dan hapus baris-baris tersebut agar tidak dobel di body
+    in_metadata_table = False
+    first_h1_stripped = False
 
     for line in lines:
-        # Deteksi metadata dari baris format: | Key | Value |
-        if line.startswith("| **") and "|" in line:
+        stripped = line.strip()
+        
+        # Hapus H1 pertama (karena sudah dijadikan judul dokumen di template)
+        if stripped.startswith("# ") and not first_h1_stripped:
+            first_h1_stripped = True
+            continue
+            
+        # Deteksi awal tabel metadata
+        if stripped.startswith("|") and ("**Dari" in stripped or "**Kepada" in stripped or "**Nomor" in stripped or "**Tanggal" in stripped or "**Revisi" in stripped):
+            in_metadata_table = True
+            # Ekstrak data
             parts = [p.strip() for p in line.split("|") if p.strip()]
             if len(parts) == 2:
                 key = parts[0].replace("**", "").strip()
                 val = parts[1].replace("**", "").strip()
                 metadata[key] = val
+            continue
+            
+        # Deteksi baris pemisah tabel metadata
+        if in_metadata_table and (stripped.startswith("|---|") or stripped.startswith("| :---") or stripped.startswith("|---")):
+            continue
+            
+        # Deteksi baris-baris isi tabel metadata lainnya
+        if in_metadata_table and stripped.startswith("|"):
+            parts = [p.strip() for p in line.split("|") if p.strip()]
+            if len(parts) == 2:
+                key = parts[0].replace("**", "").strip()
+                val = parts[1].replace("**", "").strip()
+                metadata[key] = val
+            continue
+            
+        # Jika tabel metadata selesai (bertemu baris kosong atau garis pembatas)
+        if in_metadata_table and not stripped.startswith("|"):
+            in_metadata_table = False
+            # Hapus hr pemisah teratas jika ada
+            if stripped == "---":
+                continue
+            
         content_lines.append(line)
 
     body_md = "\n".join(content_lines)
     body_html = mistune.html(body_md)
 
-    # Judul dari baris pertama heading #
+    # Temukan judul dari baris asli pertama heading #
     title = ""
     for line in lines:
         if line.startswith("# "):
@@ -77,13 +112,31 @@ def parse_markdown(source_path: Path) -> dict:
 # ─────────────────────────────────────────────
 
 def fetch_logo_base64(logo_url: str) -> str:
-    """Fetch logo dari URL dan encode ke base64 untuk embed di HTML."""
+    """Fetch logo dari URL atau path lokal dan encode ke base64 untuk embed di HTML."""
     import base64
+    import mimetypes
     try:
-        resp = requests.get(logo_url, timeout=10)
-        resp.raise_for_status()
-        b64 = base64.b64encode(resp.content).decode("utf-8")
-        content_type = resp.headers.get("Content-Type", "image/png")
+        # Jika berupa url
+        if logo_url.startswith("http://") or logo_url.startswith("https://"):
+            resp = requests.get(logo_url, timeout=10)
+            resp.raise_for_status()
+            content = resp.content
+            content_type = resp.headers.get("Content-Type", "image/png")
+        else:
+            # Cari path lokal (relatif terhadap nasmoco-docs root)
+            p = Path(logo_url)
+            if not p.is_absolute():
+                from .config import REPO_ROOT
+                p = REPO_ROOT / logo_url
+            
+            if p.exists():
+                content = p.read_bytes()
+                content_type, _ = mimetypes.guess_type(str(p))
+                content_type = content_type or "image/png"
+            else:
+                return ""
+
+        b64 = base64.b64encode(content).decode("utf-8")
         return f"data:{content_type};base64,{b64}"
     except Exception:
         return ""  # Fallback: tampilkan teks nama brand saja

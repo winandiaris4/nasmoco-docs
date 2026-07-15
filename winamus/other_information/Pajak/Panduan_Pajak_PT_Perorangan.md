@@ -68,3 +68,26 @@ Saat melakukan penagihan (*invoicing*) di setiap akhir fase, serahkan dokumen be
 4.  **Fotokopi NPWP PT Perorangan** Anda.
 5.  **Surat Keterangan PP 55** (untuk mengunci potongan di 0.5%).
 6.  **Bukti Rekening Koran/Informasi Rekening Bank** atas nama PT Winandi Multi Solusi.
+
+---
+
+## 6. Pengetahuan Operasional: Metodologi Rekayasa & Pengiriman Proyek (Hybrid Agile)
+
+Bagian ini mendokumentasikan metodologi pengiriman proyek (*Project Delivery Methodology*) yang digunakan oleh Winamus dalam menghadapi tantangan umum B2B: **Klien meminta fleksibilitas (Agile) namun dengan anggaran tetap (*Fixed Price*) dan tenggat waktu ketat (*Fixed Timeline*)**.
+
+### A. Konsep Dasar: Hybrid Agile (Water-Scrum-Fall)
+Winamus menggunakan pendekatan gabungan yang menyeimbangkan kepastian komersial dengan kelenturan operasional:
+1.  **Macro-Level (Waterfall):** Proyek dikunci dalam fase komersial yang terstruktur (Fase 0 - Fase 3) dengan durasi total 18 minggu dan anggaran Rp71.100.000. Hal ini melindungi Winamus dari risiko *scope creep* tanpa batas akhir, serta memberikan kepastian anggaran bagi klien.
+2.  **Micro-Level (Agile/Scrum):** Pengerjaan internal dan interaksi harian dilakukan secara iteratif dalam siklus sprint 2 mingguan. Setiap akhir sprint diadakan demo berkala agar klien bisa memberikan masukan lebih cepat.
+
+### B. Mekanisme Negosiasi Fleksibilitas (*Scope Trade-off*)
+Jika klien meminta perubahan atau penambahan fitur di tengah jalan tanpa ingin menaikkan budget, gunakan aturan **Tukar Tambah Fitur (*Feature Swapping*)**:
+*   *Aturan:* Fitur baru boleh masuk dengan syarat ada fitur lama dengan bobot teknis (*story points*) yang setara yang dikeluarkan dari scope fase tersebut.
+*   *Manfaat:* Klien mendapatkan fleksibilitas tanpa membahayakan margin keuntungan Winamus atau menunda tenggat waktu go-live secara keseluruhan.
+
+### C. Pemetaan 4 Fase Komersial ke 14 Langkah SOP Teknis
+Gunakan pemetaan ini untuk meyakinkan tim IT klien/auditor TAM bahwa setiap fase komersial didukung oleh kedisiplinan rekayasa perangkat lunak yang matang:
+*   **Fase 0 (Discovery & Desain):** Mengaktifkan **SOP Fase 1** (Discovery & BA), **SOP Fase 2** (Project Planning), dan **SOP Fase 3** (UI/UX Design).
+*   **Fase 1 (Pengembangan Inti & Integrasi):** Mengaktifkan **SOP Fase 4** (System Analysis), **SOP Fase 5** (System Design), **SOP Fase 6** (Dev Preparation), **SOP Fase 7-8** (Dev backend/frontend), **SOP Fase 9** (QA), **SOP Fase 10** (Pre-Prod/Staging), **SOP Fase 11** (Production Deployment), dan **SOP Fase 12** (Post-Production/Hypercare).
+*   **Fase 2 (Alur Persetujuan & Keamanan):** Mengaktifkan **SOP Fase 5** (Security Design), **SOP Fase 7-8** (Dev Alur & Hardening), **SOP Fase 9** (QA Security Testing), dan **SOP Fase 10-12** (Deployment).
+*   **Fase 3 (Optimasi & Validasi):** Mengaktifkan **SOP Fase 9** (Load/Stress Testing), **SOP Fase 10** (Security Scanning), **SOP Fase 12-13** (Documentation, Tutorial, SLA), dan **SOP Fase 14** (BAST Sign-off & Compliance).

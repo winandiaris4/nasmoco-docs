@@ -47,7 +47,7 @@ Total biaya pengembangan (Fase 0–3) adalah **Rp71.100.000** (tidak termasuk pe
 *   **Cakupan Pekerjaan (Deliverables):**
     *   Optimasi SEO Lokal untuk 22 Cabang Nasmoco
     *   Optimasi SEO berbasis pencarian kecerdasan buatan (*GEO - Generative Engine Optimization*)
-    *   Penyusunan dokumentasi teknis & sesi pelatihan tim Nasmoco
+    *   Penyusunan dokumentasi teknis & pembuatan video tutorial serta penyediaan bantuan teknis (technical support) melalui email atau telepon/WhatsApp
     *   Penyusunan Laporan Kepatuhan (*Compliance Report*) untuk standar TAM
 
 ---

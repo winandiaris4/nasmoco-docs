@@ -35,7 +35,11 @@ body {
   margin-bottom: 24px;
   border-bottom: 3px double #1A1A2E;
 }
-.letterhead-logo img { height: 52px; margin-bottom: 6px; }
+.letterhead-logo img {
+  height: 115px;
+  margin-bottom: -15px;
+  margin-top: -15px;
+}
 .letterhead-logo .brand-name {
   font-family: 'Merriweather', serif;
   font-size: 20pt;
