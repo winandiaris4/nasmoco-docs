@@ -24,7 +24,9 @@ Seluruh dokumen dalam repositori ini disusun oleh **Aris Winandi (Winamus)** ber
 nasmoco-docs/
 │
 ├── winamus/                        ← Dokumen korporat Winamus (berlaku lintas proyek)
-│   ├── SOP/                        ← Standar Operasional Prosedur (Project Handling, Development)
+│   ├── SOP/                        ← Standar Operasional Prosedur (Project Handling, Development, IEEE/TOGAF)
+│   │   ├── Standar_IEEE_dan_TOGAF.md ← Penjelasan integrasi standar IEEE & TOGAF di Winamus
+│   │   └── SOP-Software-Development-Checklist.md
 │   ├── asset/                      ← Logo, gambar, dan aset visual Winamus
 │   ├── company profile/            ← Profil perusahaan & website
 │   ├── legal/                      ← Dokumen legalitas PT Perorangan

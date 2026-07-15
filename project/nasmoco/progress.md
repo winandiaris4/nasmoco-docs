@@ -10,9 +10,9 @@
 
 | Item | Status | Keterangan |
 |---|---|---|
-| Quotation Revisi (Rev.1) | 🟡 **IN PROGRESS** | Pen Testing dihapus, total jadi Rp71.100.000 |
-| Negosiasi Harga | 🟡 **MENUNGGU** | Menunggu persetujuan Nasmoco atas quotation baru |
-| Kontrak / PKS | ⚪ **BELUM** | Menunggu quotation disetujui |
+| Quotation Revisi (Rev.1) | ✅ **SELESAI** | Pen Teting dihapus, Quotation Rev.1 & Proposal Teknis siap dikirim |
+| Negosiasi Harga | 🟡 **MENUNGGU** | Menunggu persetujuan Nasmoco atas quotation & proposal baru |
+| Kontrak / PKS | 🟡 **REVIEW** | Draft PKS telah dibuat, siap direview bersama |
 | Kick-off Fase 0 | ⚪ **BELUM** | Menunggu kontrak ditandatangani & DP masuk |
 
 ---
@@ -35,11 +35,12 @@
 ### 3. Negosiasi & Revisi Quotation
 - [x] Nasmoco meminta biaya Pen Testing dihapus (ditangani internal)
 - [x] Update dokumen komersial: total Rp86.1jt → **Rp71.100.000**
-- [ ] Kirim Quotation Rev.1 resmi ke pihak Keuangan/Procurement Nasmoco
+- [x] Pisahkan dokumen komersial (Quotation), Proposal Teknis, dan Draft Kontrak
+- [ ] Kirim Quotation & Proposal Teknis Rev.1 resmi ke Nasmoco
 - [ ] Terima persetujuan/tanda tangan Purchase Order (PO) dari Nasmoco
 
 ### 4. Persiapan Kontrak
-- [ ] Susun draf Perjanjian Kerja Sama (PKS) / SPK
+- [x] Susun draf Perjanjian Kerja Sama (PKS) / SPK
 - [ ] Review PKS oleh kedua belah pihak
 - [ ] Tanda tangan PKS
 - [ ] Terima pembayaran DP Fase 0 (Rp1.350.000)
