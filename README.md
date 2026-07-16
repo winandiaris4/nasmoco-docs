@@ -27,6 +27,7 @@ nasmoco-docs/
 │   ├── SOP/                        ← Standar Operasional Prosedur (Project Handling, Development, IEEE/TOGAF)
 │   │   ├── Standar_IEEE_dan_TOGAF.md ← Penjelasan integrasi standar IEEE & TOGAF di Winamus
 │   │   └── SOP-Software-Development-Checklist.md
+│   ├── agency_readiness_checklist.md ← Checklist kesiapan bisnis & IT (Klien Pertama Enterprise)
 │   ├── asset/                      ← Logo, gambar, dan aset visual Winamus
 │   ├── company profile/            ← Profil perusahaan & website
 │   ├── legal/                      ← Dokumen legalitas PT Perorangan
