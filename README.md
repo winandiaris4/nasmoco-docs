@@ -23,16 +23,22 @@ Seluruh dokumen dalam repositori ini disusun oleh **Aris Winandi (Winamus)** ber
 ```
 nasmoco-docs/
 │
-├── winamus/                        ← Dokumen korporat Winamus (berlaku lintas proyek)
-│   ├── SOP/                        ← Standar Operasional Prosedur (Project Handling, Development, IEEE/TOGAF)
-│   │   ├── Standar_IEEE_dan_TOGAF.md ← Penjelasan integrasi standar IEEE & TOGAF di Winamus
-│   │   └── SOP-Software-Development-Checklist.md
-│   ├── agency_readiness_checklist.md ← Checklist kesiapan bisnis & IT (Klien Pertama Enterprise)
-│   ├── asset/                      ← Logo, gambar, dan aset visual Winamus
-│   ├── company profile/            ← Profil perusahaan & website
-│   ├── legal/                      ← Dokumen legalitas PT Perorangan
-│   └── other information/
-│       └── Pajak/                  ← Panduan PPh Final 0.5% (PP 55), simulasi pajak per termin
+├── winamus/                        ← Dokumen internal perusahaan (terstruktur per divisi)
+│   ├── 01-leadership/              ← Visi, Misi, OKR, Roadmap Perusahaan
+│   │   └── company_direction.md
+│   ├── 02-marketing/               ← ICP, Brand Strategy, Go-to-Market, Lead Generation
+│   │   └── marketing_strategy.md
+│   ├── 03-delivery/                ← SOP Pengerjaan, Service Catalog, Checklist Pengembangan
+│   │   ├── SOP/                    ← SOP Pengerjaan (IEEE/TOGAF, Project Handling)
+│   │   ├── service-in-progress/    ← Layanan yang sedang aktif berjalan
+│   │   ├── service-rnd/            ← Ide & riset layanan potensial
+│   │   └── service_evaluation_framework.md
+│   ├── 04-finance/                 ← Panduan Pajak, Skema Harga, Pembukuan
+│   ├── 05-legal/                   ← Dokumen legalitas PT, Template Kontrak, NDA, PKS
+│   ├── 06-hr/                      ← SOP Freelancer, NDA Kontributor, Struktur Tim
+│   ├── 07-brand/                   ← Aset Logo, Guideline Visual, Company Profile
+│   │   └── asset/                  ← Logo dan aset visual Winamus
+│   └── agency_readiness_checklist.md ← Checklist kesiapan bisnis & IT
 │
 ├── project/
 │   └── nasmoco/                    ← Semua dokumen proyek Nasmoco
