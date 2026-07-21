@@ -1,8 +1,30 @@
 # 🤖 Studi Kelayakan: Layanan AI Agent Custom — Winamus
 
 > **Divisi:** Delivery / R&D  
-> **Status:** Draft v1.0 — Juli 2026  
+> **Status:** Draft v1.4 — Juli 2026  
+> **Revisi:** v1.0 (Draft Awal) → v1.4 (Penambahan Seksi 9–14: Branding, UI/UX, Plugin, Diferensiasi, Arsitektur Orkestrasi, MCP)  
 > **Tujuan:** Mengevaluasi kelayakan bisnis, teknis, dan komersial sebelum Winamus secara resmi menawarkan layanan AI Agent kepada klien.
+
+---
+
+## 📋 DAFTAR ISI
+
+| No | Seksi | Keterangan Singkat |
+|---|---|---|
+| 1 | [Definisi Layanan](#1-definisi-layanan-apa-itu-ai-agent-custom) | AI Agent vs Chatbot Biasa |
+| 2 | [Problem Space](#2-problem-space-masalah-bisnis-yang-diselesaikan) | 4 Pain Point Utama Klien |
+| 3 | [Model Bisnis](#3-model-bisnis-bagaimana-winamus-menghasilkan-uang) | Model A/B/C/D + SaaS Multi-Tenant |
+| 4 | [Lanskap Kompetitor](#4-lanskap-kompetitor) | Kompetitor Global & Lokal |
+| 5 | [Stack Teknologi](#5-stack-teknologi-pilihan) | LangGraph, LLM, Vector DB |
+| 6 | [Risiko & Mitigasi](#6-risiko--mitigasi) | 5 Risiko Utama + Strategi ISO |
+| 7 | [Segmen Klien Prioritas](#7-segmen-klien-prioritas-pilot-target) | Dealer, Properti, BPR, Distributor |
+| 8 | [Langkah Selanjutnya](#8-langkah-selanjutnya-next-steps) | PoC Internal, Demo Nasmoco |
+| 9 | [Strategi Branding](#9-strategi-branding-brand-terpisah-vs-satu-atap-winamus) | Dua Fase: Winamus → Spin-off |
+| 10 | [Bentuk UI/UX](#10-bentuk-uiux-ai-agent-apakah-chatbot-paling-optimal) | 5 Format: Chat, Copilot, Headless, Node, Persona |
+| 11 | [Mekanisme Addon/Plugin](#11-mekanisme-addon--plugin-integrasi-aplikasi-eksternal) | Tool Calling, MCP, Enterprise Connectors |
+| 12 | [Strategi Diferensiasi](#12-strategi-diferensiasi-winamus-ringkasan) | Positioning "Hybrid Agentic Systems" |
+| 13 | [Arsitektur Orkestrasi](#13-arsitektur-orkestrasi-di-mana-posisi-layer-teknis-winamus) | Layer Stack + JSON-to-Graph Compiler |
+| 14 | [Implementasi MCP](#14-implementasi-mcp-model-context-protocol-di-platform-winamus) | SSE, Hybrid Webhook, Ekosistem Open-Source |
 
 ---
 
@@ -48,7 +70,7 @@ Ini adalah **pain points** nyata yang dialami klien target Winamus (perusahaan m
 
 ## 3. MODEL BISNIS: Bagaimana Winamus Menghasilkan Uang?
 
-Winamus dapat mengadopsi **3 model monetisasi** sekaligus untuk layanan AI Agent:
+Winamus dapat mengadopsi **4 model monetisasi** secara bertahap untuk layanan AI Agent:
 
 ### Model A: Project-Based (Setup & Development)
 Klien membayar biaya *one-off* untuk pembangunan AI Agent yang disesuaikan (custom) dengan kebutuhan bisnis dan data mereka.
@@ -214,14 +236,17 @@ Agensi IT di Semarang/Jawa yang menawarkan solusi serupa masih **sangat sedikit*
 
 Winamus tidak perlu membangun model AI dari nol. Gunakan LLM yang sudah ada sebagai fondasi:
 
-| Komponen | Pilihan Teknologi | Biaya Estimasi |
-|---|---|---|
-| **LLM (Otak AI)** | OpenAI GPT-4o / Google Gemini Pro / Anthropic Claude | Pay-per-use API |
-| **Orchestration** | LangChain / LlamaIndex / CrewAI | Open source |
-| **Vector Database** (Memori Dokumen) | Pinecone / Weaviate / pgvector (PostgreSQL) | Freemium/berbayar |
-| **Agent Framework** | LangGraph / CrewAI / AutoGen | Open source |
-| **Hosting** | Cloud VM (Digital Ocean/GCP) + Docker | ~Rp300k–Rp1jt/bulan |
-| **Antarmuka** | WhatsApp (via WABA API), Web Widget, atau REST API | Tergantung penyedia |
+| Komponen | Pilihan Utama (Direkomendasikan) | Alternatif | Biaya Estimasi |
+|---|---|---|---|
+| **LLM (Otak AI)** | Google Gemini Flash / Gemini Pro | OpenAI GPT-4o, Anthropic Claude | Pay-per-use API |
+| **Agent Orchestration** ⭐ | **LangGraph** (State Machine berbasis DAG) | LlamaIndex Workflows | Open source |
+| **Vector Database** (Memori Dokumen) | pgvector (PostgreSQL) | Pinecone, Qdrant, Weaviate | Freemium/berbayar |
+| **Integrasi Tool/API** | MCP (Model Context Protocol) via SSE | Custom REST Webhook | Open source |
+| **Antarmuka Visual (Admin)** | React Flow (Node-Based Canvas) | — | Open source |
+| **Hosting** | Google Cloud Platform (GCP) + Docker | DigitalOcean, AWS | ~Rp500k–Rp2jt/bulan |
+| **Antarmuka Pengguna** | Web Widget / WhatsApp Business API | Telegram, REST API | Tergantung penyedia |
+
+> **Catatan:** LangGraph dipilih sebagai *primary orchestration engine* karena kontrol alur logika berbasis *State Machine* yang sangat ketat — sangat kritis untuk operasional enterprise. Lihat pembahasan lengkap di [Seksi 13](#13-arsitektur-orkestrasi-di-mana-posisi-layer-teknis-winamus).
 
 ---
 
@@ -235,26 +260,25 @@ Winamus tidak perlu membangun model AI dari nol. Gunakan LLM yang sudah ada seba
 | **Resistensi Adopsi dari Pengguna** | Menengah — investasi klien sia-sia | Sertakan sesi pelatihan dan *change management* dalam paket harga |
 | **Ketergantungan pada Provider LLM** | Menengah — jika API berubah harga/TOS | Rancang arsitektur yang *provider-agnostic* sehingga bisa ganti model |
 
-#### D. Keamanan Informasi & ISO 27001 / 9001: Apakah Wajib?
+### 6.1 Keamanan Informasi & Sertifikasi ISO 27001 / 9001: Apakah Wajib?
 
 Pemain besar seperti Feedloop AI memiliki sertifikasi ISO 27001 (Keamanan Informasi) dan ISO 9001 (Manajemen Mutu). Bagi startup baru seperti Winamus, mendapatkan sertifikasi ini membutuhkan biaya puluhan hingga ratusan juta rupiah serta proses audit yang memakan waktu 6–12 bulan.
 
-**Jawaban Singkat: TIDAK wajib di tahap awal.**
+**Jawaban Singkat: TIDAK wajib di tahap awal — namun harus dimitigasi.**
 
-Sertifikasi ISO umumnya hanya menjadi syarat mutlak jika target pasar kita adalah **BUMN (State-Owned Enterprise), instansi pemerintah pusat (kementerian), atau bank Buku 4 (Mega Bank)**. Untuk pasar awal Winamus, ada cara taktis untuk memitigasi kebutuhan sertifikasi ini tanpa kehilangan kepercayaan klien:
+Sertifikasi ISO umumnya hanya menjadi syarat mutlak jika target pasar kita adalah **BUMN (State-Owned Enterprise), instansi pemerintah pusat (kementerian), atau bank Buku 4 (Mega Bank)**. Untuk pasar awal Winamus, ada 4 cara taktis untuk memitigasi kebutuhan sertifikasi ini tanpa kehilangan kepercayaan klien:
 
 1.  **Gunakan Infrastruktur yang Sudah Patuh (Inherited Compliance):**
     *   Winamus tidak perlu mensertifikasi server sendiri. Kita bisa menggunakan cloud provider besar (Google Cloud, AWS, DigitalOcean) yang **sudah memiliki sertifikasi ISO 27001, SOC 2 Type II, dan PCI-DSS**.
     *   *Pernyataan Pemasaran:* *"Sistem kami dihosting di infrastruktur cloud kelas dunia (Google Cloud Platform) yang bersertifikat ISO 27001 untuk menjamin keamanan data fisik dan digital."*
 2.  **Gunakan Arsitektur Decoupled / Hybrid (Solusi Terbaik):**
-    *   Dengan membiarkan database vektor berisi data rahasia klien berada di server/infrastruktur cloud milik klien sendiri (Arsitektur 2), tanggung jawab pengamanan data rahasia tersebut berada di bawah sertifikasi ISO milik klien sendiri.
+    *   Dengan membiarkan database vektor berisi data rahasia klien berada di server/infrastruktur cloud milik klien sendiri (Arsitektur 2 — lihat Seksi 3C), tanggung jawab pengamanan data rahasia tersebut berada di bawah sertifikasi ISO milik klien sendiri.
     *   Winamus hanya bertindak sebagai "mesin pemroses" (*processor*) lewat jalur aman. Klien enterprise tidak akan mempermasalahkan ketiadaan ISO di pihak kita karena data mereka tidak pernah disimpan oleh Winamus.
 3.  **Tingkatkan Keamanan di Level Kontrak & Legal (NDA & SLA):**
     *   Ganti sertifikasi formal dengan jaminan hukum yang kuat pada draf PKS (Perjanjian Kerja Sama).
     *   Sertakan klausul keamanan data standar: enkripsi data saat dikirim (*in transit*) dan saat disimpan (*at rest*), pembatasan akses tim developer, dan kesepakatan tingkat layanan (*Service Level Agreement* / SLA).
 4.  **Fokus pada Target Pasar Mid-Market:**
     *   Fokus pada dealer lokal (seperti Nasmoco), developer properti regional, koperasi, dan BPR (Bank Perekonomian Rakyat). Segmen ini umumnya tidak mensyaratkan ISO 27001 dalam proses pengadaan jasa IT mereka; mereka lebih mengutamakan **kepercayaan personal, portofolio nyata, harga yang masuk akal, dan support lokal yang responsif**.
-
 
 ---
 
@@ -415,7 +439,7 @@ Winamus membagi addon menjadi 3 kategori agar fleksibel dan memiliki nilai jual 
 | **2. Custom API Connector (Universal Webhook)** | API Klien, Webhook internal, ERP kustom | Winamus menyediakan form kosong di mana tim IT klien bisa memasukkan URL API mereka sendiri, token otorisasi, dan struktur JSON kustom. | **Premium Addon** (Biaya tambahan bulanan, misal +Rp250.000/bln). |
 | **3. Enterprise Connectors** | SAP, Salesforce, Oracle ERP, Microsoft Dynamics | Integrasi kompleks dengan platform raksasa dunia yang membutuhkan lisensi dan penanganan jalur data khusus yang sangat aman. | **Project-Based / High Retainer** (Biaya setup kustom + retainer bulanan premium). |
 
-#### D. Detail Teknis, Lisensi, & Estimasi Biaya Enterprise Connectors
+#### C. Detail Teknis, Lisensi, & Estimasi Biaya Enterprise Connectors
 
 Integrasi dengan sistem raksasa berbeda secara fundamental dibanding integrasi API biasa karena faktor risiko data, birokrasi keamanan korporasi, dan skema lisensi yang ketat.
 
@@ -456,7 +480,7 @@ Karena tingkat kerumitan, tanggung jawab keamanan, dan besarnya risiko kerusakan
 
 ---
 
-### C. Dampak & Keuntungan Mekanisme Plugin bagi Winamus
+### D. Dampak & Keuntungan Mekanisme Plugin bagi Winamus
 
 1.  **Diferensiasi Kuat:** Kompetitor rata-rata hanya menawarkan "chatbot WhatsApp". Dengan mekanisme plugin kustom, Winamus menawarkan **"AI yang bisa bekerja langsung di aplikasi yang sudah dimiliki klien"**.
 2.  **Kunci Loyalitas Klien (*High Switching Cost*):** Begitu AI Agent kita terhubung secara mendalam ke ERP Nasmoco (misal: otomatis memasukkan prospek mobil dari WhatsApp ke database dealer mereka), akan sangat sulit bagi Nasmoco untuk berpindah ke vendor lain karena mereka harus membongkar ulang seluruh integrasi API tersebut.
@@ -467,9 +491,26 @@ Karena tingkat kerumitan, tanggung jawab keamanan, dan besarnya risiko kerusakan
 
 ## 12. STRATEGI DIFERENSIASI WINAMUS (Ringkasan)
 
-Daripada hanya menjual chatbot web biasa yang pasarnya sudah sangat jenuh (*red ocean*), Winamus dapat memposisikan diri sebagai penyedia **"Hybrid Agentic Systems"**:
+Daripada hanya menjual chatbot web biasa yang pasarnya sudah sangat jenuh (*red ocean*), Winamus memposisikan diri sebagai penyedia **"Hybrid Agentic Systems"** — sebuah kategori produk baru yang menggabungkan kedalaman enterprise dengan kemudahan self-serve.
 
 > **"Kami tidak hanya membuat chatbot untuk menyapa pelanggan Anda. Kami menyediakan platform dengan kanvas visual (Node-Based) agar tim IT Anda bisa mengatur alur kerja AI sendiri secara modular menggunakan sistem Plugin, yang berjalan di latar belakang (Headless) untuk memproses data dari WhatsApp pelanggan langsung masuk ke ERP perusahaan Anda secara otomatis."**
+
+### A. Matriks Keunggulan Kompetitif (Winamus vs Kompetitor)
+
+| Dimensi Diferensiasi | Chatbot Biasa (Kompetitor) | Winamus (Hybrid Agentic) |
+|---|---|---|
+| **Antarmuka Admin** | Form konfigurasi sederhana | Node-based visual canvas (React Flow) |
+| **Eksekusi Aksi** | Hanya menjawab teks | Tool Calling ke ERP/CRM/WhatsApp secara nyata |
+| **Integrasi** | Webhook dasar | MCP + Enterprise Connectors (SAP, Odoo, Salesforce) |
+| **Model Data Klien** | Shared (risiko data silang) | Decoupled/Hybrid (data klien di infrastruktur mereka sendiri) |
+| **Fleksibilitas Model LLM** | Terikat 1 provider | Provider-agnostic + BYOK (Bring Your Own Key) |
+| **Target Market** | UKM/Consumer | Mid-market → Enterprise (Dealer, BPR, Properti) |
+| **Support** | Tiket online | Tim lokal Semarang, responsif, berbahasa Indonesia |
+
+### B. Unique Value Proposition (UVP) per Segmen
+
+*   **Untuk Klien Mid-Market (Dealer/Properti/BPR):** *"AI Agent yang berbicara bahasa bisnis Anda, terintegrasi ke sistem yang sudah Anda punya, didukung tim lokal Semarang yang bisa ditemui langsung."*
+*   **Untuk Klien Enterprise (Korporasi Multi-Divisi):** *"Platform visual untuk membangun, memantau, dan memodifikasi puluhan AI Agent sekaligus — tanpa perlu memanggil developer setiap ada perubahan alur kerja."*
 
 ---
 
